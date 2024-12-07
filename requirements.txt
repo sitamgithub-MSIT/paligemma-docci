@@ -1,0 +1,5 @@
+python-dotenv==1.0.1
+transformers==4.47.0
+torch
+spaces
+gradio
