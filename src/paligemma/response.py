@@ -12,19 +12,26 @@ from src.logger import logging
 from src.exception import CustomExceptionHandling
 
 
+# Language dictionary
+language_dict = {
+    "English": "en",
+    "Spanish": "es",
+    "French": "fr",
+}
+
 # Model and processor
 model, processor = load_model_and_processor(model_name, device)
 
 
 @spaces.GPU
-def caption_image(image: PIL.Image.Image, max_new_tokens: int, sampling: bool) -> str:
+def caption_image(image: PIL.Image.Image, max_new_tokens: int, language: str) -> str:
     """
     Generates a caption based on the given image using the model.
 
     Args:
         - image (PIL.Image.Image): The input image to be processed.
         - max_new_tokens (int): The maximum number of new tokens to generate.
-        - sampling (bool): Whether to use sampling or not.
+        - language (str): The language of the generated caption.
 
     Returns:
         str: The generated caption text.
@@ -35,7 +42,8 @@ def caption_image(image: PIL.Image.Image, max_new_tokens: int, sampling: bool) -
             gr.Warning("Please provide an image.")
 
         # Prepare the inputs
-        prompt = "<image>caption en"
+        language = language_dict[language]
+        prompt = f"<image>caption {language}"
         model_inputs = (
             processor(text=prompt, images=image, return_tensors="pt")
             .to(torch.bfloat16)
@@ -46,7 +54,7 @@ def caption_image(image: PIL.Image.Image, max_new_tokens: int, sampling: bool) -
         # Generate the response
         with torch.inference_mode():
             generation = model.generate(
-                **model_inputs, max_new_tokens=max_new_tokens, do_sample=sampling
+                **model_inputs, max_new_tokens=max_new_tokens, do_sample=False
             )
             generation = generation[0][input_len:]
             decoded = processor.decode(generation, skip_special_tokens=True)

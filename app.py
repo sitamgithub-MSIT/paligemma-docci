@@ -10,22 +10,27 @@ from src.paligemma.response import caption_image
 image = gr.Image(type="pil", label="Image")
 max_new_tokens = gr.Slider(
     minimum=20,
-    maximum=160,
-    value=80,
-    step=10,
+    maximum=260,
+    value=120,
+    step=20,
     label="Max Tokens",
     info="Use larger values for detailed captions",
 )
-sampling = gr.Checkbox(value=False, label="Sampling")
+language = gr.Dropdown(
+    choices=["English", "Spanish", "French"],
+    value="English",
+    label="Language",
+    info="Select the caption language",
+)
 
 # Output for the interface
 answer = gr.Textbox(label="Generated Caption", show_label=True, show_copy_button=True)
 
 # Examples for the interface
 examples = [
-    ["images/cat.jpg", 100, False],
-    ["images/dog.jpg", 80, True],
-    ["images/bird.jpg", 160, False],
+    ["images/cat.jpg", 140, "Spanish"],
+    ["images/dog.jpg", 260, "English"],
+    ["images/bird.jpg", 120, "French"],
 ]
 
 # Title, description, and article for the interface
@@ -37,7 +42,7 @@ article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2412.035
 # Launch the interface
 interface = gr.Interface(
     fn=caption_image,
-    inputs=[image, max_new_tokens, sampling],
+    inputs=[image, max_new_tokens, language],
     outputs=answer,
     examples=examples,
     cache_examples=True,
