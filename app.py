@@ -3,7 +3,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import gradio as gr
-from src.app.response import caption_image
+from src.paligemma.response import caption_image
 
 
 # Image and input parameters
