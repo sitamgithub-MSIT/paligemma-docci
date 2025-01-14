@@ -47,7 +47,7 @@ Now, open up your local host and see the web application running. For more infor
 
 **Note**: You need a Hugging Face access token to run the application. You can get the token by signing up on the Hugging Face website and creating a new token from the settings page. After getting the token, you can set it as an environment variable `ACCESS_TOKEN` in your system by creating a `.env` file in the project's root directory. Check the `.env.example` file for reference.
 
-The application is hosted on Hugging Face Spaces running on a GPU. You are expected to have a GPU for use when running the application. If you do not have a GPU, you can use the live version of the application.
+The application is hosted on Hugging Face Spaces running on a GPU. You are expected to have a GPU for use when running the application. If you do not have a GPU, you can use the [live version](https://huggingface.co/spaces/sitammeur/paligemma-docci) of the application.
 
 ## Usage
 
