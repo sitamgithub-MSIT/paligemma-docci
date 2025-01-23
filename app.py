@@ -11,7 +11,7 @@ image = gr.Image(type="pil", label="Image")
 max_new_tokens = gr.Slider(
     minimum=20,
     maximum=260,
-    value=120,
+    value=100,
     step=20,
     label="Max Tokens",
     info="Use larger values for detailed captions",
