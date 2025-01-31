@@ -36,7 +36,7 @@ examples = [
 # Title, description, and article for the interface
 title = "PaliGemma Image Captioning"
 description = "Gradio Demo for the PaliGemma 2 Vision Language Understanding and Generation model. This model generates natural language captions based on uploaded images. To use it, upload your image, select the desired parameters (or stick with the default settings), and click 'Submit.' You can also choose one of the examples to load a predefined image. For more information, please refer to the links below."
-article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2412.03555' target='_blank'>PaliGemma 2: A Family of Versatile VLMs for Transfer</a> | <a href='https://huggingface.co/google/paligemma2-3b-ft-docci-448' target='_blank'>Model Page</a></p>"
+article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2412.03555' target='_blank'>PaliGemma 2: A Family of Versatile VLMs for Transfer</a> | <a href='https://huggingface.co/google/paligemma2-10b-ft-docci-448' target='_blank'>Model Page</a></p>"
 
 
 # Launch the interface
